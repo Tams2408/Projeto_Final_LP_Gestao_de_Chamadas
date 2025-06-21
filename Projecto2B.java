@@ -1,3 +1,4 @@
+//package Projeto_Final_LP_Gestao_de_Chamadas;
 import java.io.*;
 import java.util.*;
 
@@ -42,7 +43,7 @@ public class Projecto2B {
         }
 
         try (PrintWriter out = new PrintWriter(new FileWriter(ARQUIVO_CLIENTES, true))) {
-            out.println(cliente + "," + destino + "," + tempo);
+            System.out.println(cliente + "," + destino + "," + tempo);
             System.out.println("Registo inserido com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao escrever no ficheiro: " + e.getMessage());
