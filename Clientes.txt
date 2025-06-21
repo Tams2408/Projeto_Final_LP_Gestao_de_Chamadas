@@ -1,2 +1,4 @@
 Cliente;Destino;Tempo (s);Região;Valor Total
 9850053,9932569,130
+arlinda,paris,6:00:00
+Sara Lopes,+3,6:00
