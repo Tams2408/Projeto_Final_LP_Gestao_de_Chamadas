@@ -1,0 +1,9 @@
+FACTURA
+EMPRESA DE COMUNICACAO US
+
+CLIENTE: 9541233
+
+DESTINO              TEMPO      REGIÃO          VALOR     
++238                 900        Internacional   945.00    
+
+TOTAL PAGO: 945.00 ECV
