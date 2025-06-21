@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Projecto2B {
 
-    private static final String ARQUIVO_CLIENTES = "Clientes.txt";
-    private static final Scanner scanner = new Scanner(System.in);
+    public static final String ARQUIVO_CLIENTES = "Clientes.txt";
+    public static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         while (true) {
