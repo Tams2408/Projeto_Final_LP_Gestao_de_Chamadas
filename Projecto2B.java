@@ -29,9 +29,9 @@ public class Projecto2B {
     }
 
     private static void inserirRegisto() {
-        System.out.print("Cliente: ");
+        System.out.print("Numero Cliente: ");
         String cliente = scanner.nextLine();
-        System.out.print("Destino: ");
+        System.out.print("Numero Destino: ");
         String destino = scanner.nextLine();
         System.out.print("Tempo (s): ");
         String tempo = scanner.nextLine();
@@ -50,7 +50,7 @@ public class Projecto2B {
     }
 
     private static void consultarCliente() {
-        System.out.print("Nome do cliente a consultar: ");
+        System.out.print("Numero do cliente a consultar: ");
         String nome = scanner.nextLine();
 
         try (BufferedReader br = new BufferedReader(new FileReader(ARQUIVO_CLIENTES))) {
