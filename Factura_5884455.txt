@@ -1,0 +1,9 @@
+FACTURA
+EMPRESA DE COMUNICACAO US
+
+CLIENTE: 5884455
+
+DESTINO              TEMPO      REGIÃO          VALOR     
++238                 600        Internacional   630.00    
+
+TOTAL PAGO: 630.00 ECV
