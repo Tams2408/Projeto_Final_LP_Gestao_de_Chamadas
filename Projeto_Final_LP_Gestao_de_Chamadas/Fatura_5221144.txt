@@ -1,9 +1,10 @@
 ---------------------FATURA-----------------------------
 
-EMPRESA: OPERADORA DE COMUNICACAO - OPCV
+EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCV
 
 CLIENTE: 5221144
 
-DESTINO: 238
+DESTINO              TEMPO      REGIAO          VALOR     
+238                  900        Desconhecida    238.00    
 
 TOTAL PAGO: 238.00 ECV

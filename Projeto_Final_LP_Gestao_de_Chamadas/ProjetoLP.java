@@ -9,7 +9,7 @@ public class ProjetoLP {
 
             //Opcões disponíveis no sistema
             Scanner ler = new Scanner(System.in);
-            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO OCV! ---");
+            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO DE CABO VERDE - OCV! ---");
 
             while (true) {
                 System.out.println("\n--- MENU ---");
@@ -48,12 +48,9 @@ public class ProjetoLP {
     
                 //Consultar cliente
                 case "2":
-                /*Abre o ficheiro de clientes.
-                Lê cada linha (cliente) e separa os dados (número, destino, tempo).
-                Se o número do cliente for igual ao procurado:
-                Determina a região e o valor a pagar.
-                Exibe os dados formatados.
-                Se o cliente não for encontrado, avisa o utilizador.
+                /*Abre o ficheiro de clientes.Lê cada linha e separa os dados (número, destino, tempo).
+                Se o número do cliente for igual ao procurado, determina a região e o valor a pagar.
+                Exibe os dados formatados.Se o cliente não for encontrado, avisa o utilizador.
                 Se der erro ao ler o ficheiro, mostra uma mensagem de erro.*/
                 System.out.print("Numero do cliente a consultar: ");
                 String numero = ler.nextLine();
@@ -85,9 +82,10 @@ public class ProjetoLP {
                     try (BufferedReader br = new BufferedReader(new FileReader(clientes));
                             PrintWriter pw = new PrintWriter(new FileWriter(fatura))) {
                             pw.println("---------------------FATURA-----------------------------\n");
-                            pw.println("EMPRESA: OPERADORA DE COMUNICACAO - OPCV\n");
+                            pw.println("EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCV\n");
                             pw.println("CLIENTE: " + numeroFatura + "\n");
-                            pw.printf("DESTINO: ", " TEMPO: ", "REGIAO: ", "VALOR: ");
+                            pw.printf("%-20s %-10s %-15s %-10s\n", "DESTINO", "TEMPO", "REGIAO", "VALOR");
+
 
                             double total = 0;
                             String linha;
@@ -96,8 +94,8 @@ public class ProjetoLP {
                             if (partes.length >= 3 && partes[0].equalsIgnoreCase(numeroFatura)) {
                                 String regiao = detectarRegiao(partes[1]);
                                 String valorStr = calcularValorTotal(partes[1], partes[2]);
-                                double valor = Double.parseDouble(valorStr.replace("ECV", "").trim().replace(",", "."));
-                                pw.printf(partes[1]+"\n", partes[2], regiao, valor);
+                                double valor = Double.parseDouble(valorStr.replace("CVE", "").trim().replace(",", "."));
+                                pw.printf("%-20s %-10s %-15s %-10.2f%n", partes[1], partes[2], regiao, valor);
                                 total += valor;
                 }
             }
