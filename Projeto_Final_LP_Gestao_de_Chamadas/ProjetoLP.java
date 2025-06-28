@@ -4,11 +4,10 @@ import java.util.*;
 
 public class ProjetoLP {
 
+    public static String clientes = "Clientes.txt";
     public static void main(String[] args) {
 
-        String clientes = "Clientes.txt";
-        Scanner ler = new Scanner(System.in);
-
+            Scanner ler = new Scanner(System.in);
             System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO OPCV! ---");
 
             while (true) {
