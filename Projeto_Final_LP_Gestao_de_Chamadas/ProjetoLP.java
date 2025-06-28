@@ -2,7 +2,7 @@ package Projeto_Final_LP_Gestao_de_Chamadas;
 import java.io.*;
 import java.util.*;
 
-public class Projecto2B {
+public class ProjetoLP {
 
     public static void main(String[] args) {
 
