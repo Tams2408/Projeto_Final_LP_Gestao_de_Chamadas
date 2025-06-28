@@ -1,0 +1,9 @@
+---------------------FATURA-----------------------------
+
+EMPRESA: OPERADORA DE COMUNICACAO - OPCV
+
+CLIENTE: 587799
+
+DESTINO: +31
+
+TOTAL PAGO: 31.00 ECV
