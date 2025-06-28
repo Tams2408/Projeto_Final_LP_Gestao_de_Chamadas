@@ -7,6 +7,7 @@ public class ProjetoLP {
     public static String clientes = "Clientes.txt";
     public static void main(String[] args) {
 
+            //Opcões disponíveis no sistema
             Scanner ler = new Scanner(System.in);
             System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO OPCV! ---");
 
@@ -23,18 +24,21 @@ public class ProjetoLP {
             switch (opcao) {
                 //Inserir Registo
                 case "1":
+                //inserir informações do cliente
                 System.out.print("Numero Cliente: ");
                 String cliente = ler.nextLine();
                 System.out.print("Numero Destino: ");
                 String destino = ler.nextLine();
                 System.out.print("Tempo (s): ");
                 String tempo = ler.nextLine();
-
+                
+                //validação dos campos de informações
                 if (cliente == ""  || destino == ""  || tempo == "" ) {
                     System.out.println("Todos os campos sao obrigatórios.");
                 }else{
                     System.out.println("Registo inserido com sucesso.");
                 }
+                ////verificação de erro no ficheiro
                 try (PrintWriter out = new PrintWriter(new FileWriter(clientes, true))) {
                     out.println(cliente + "," + destino + "," + tempo);
                 }
@@ -44,10 +48,20 @@ public class ProjetoLP {
     
                 //Consultar cliente
                 case "2":
+                /*Abre o ficheiro de clientes.
+                Lê cada linha (cliente) e separa os dados (número, destino, tempo).
+                Se o número do cliente for igual ao procurado:
+                Determina a região e o valor a pagar.
+
+                Exibe os dados formatados.
+
+                Se o cliente não for encontrado, avisa o utilizador.
+
+                Se der erro ao ler o ficheiro, mostra uma mensagem de erro.*/
                 System.out.print("Numero do cliente a consultar: ");
                 String numero = ler.nextLine();
 
-                try (BufferedReader br = new BufferedReader(new FileReader(clientes))) {
+                try (BufferedReader br = new BufferedReader(new FileReader(clientes))){
                 String linha;
                 boolean encontrou = false;
                 while ((linha = br.readLine()) != null) {
@@ -56,7 +70,6 @@ public class ProjetoLP {
                         String regiao = detectarRegiao(partes[1]);
                         String valor = calcularValorTotal(partes[1], partes[2]);
                         System.out.printf("Cliente: "+partes[0]+" | Destino: "+partes[1]+ " | Tempo: "+partes[2]+ " | Regiao: "+regiao+ "| Valor: "+valor);
-                            //partes[0] partes[1], partes[2], regiao, valor);
                             encontrou = true;
                 }
             }
@@ -77,7 +90,7 @@ public class ProjetoLP {
                             pw.println("---------------------FATURA-----------------------------\n");
                             pw.println("EMPRESA: OPERADORA DE COMUNICACAO - OPCV\n");
                             pw.println("CLIENTE: " + numeroFatura + "\n");
-                            pw.printf("DESTINO: ", " TEMPO: ");
+                            pw.printf("DESTINO: ", " TEMPO: ", "REGIAO: ", "VALOR: ");
 
                             double total = 0;
                             String linha;
@@ -87,7 +100,7 @@ public class ProjetoLP {
                                 String regiao = detectarRegiao(partes[1]);
                                 String valorStr = calcularValorTotal(partes[1], partes[2]);
                                 double valor = Double.parseDouble(valorStr.replace("ECV", "").trim().replace(",", "."));
-                                pw.printf(partes[1]+"\n", partes[2], "REGIAO: " + regiao, " VALOR: " + valor);
+                                pw.printf(partes[1]+"\n", partes[2], regiao, valor);
                                 total += valor;
                 }
             }
@@ -102,35 +115,7 @@ public class ProjetoLP {
                 case "4":
                     System.out.print("Numero do cliente: ");
                     String gerarFaturaCliente = ler.nextLine();
-
-                    File inputFile = new File(clientes);
-                    File tempFile = new File(clientes + ".tmp");
-
-                    try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
-
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
-            String[] parts = line.split(",", 2);
-            System.out.println(gerarFaturaCliente);
-            if (parts.length > 0 && !parts[0].trim().equals(gerarFaturaCliente)) {
-                writer.write(line);
-                writer.newLine();
-            }
-        }
-        System.out.println("client delete");
-        tempFile.renameTo(inputFile);
-        if (tempFile.delete()) {
-            System.out.println("eliminado com sucesso");
-        }else{
-            System.out.println("erro na eliminacao");
-        }
-       /// inputFile.delete();
-    }catch (IOException e) {
-        System.out.println("Erro: " + e.getMessage());
-    }
-                /*  System.out.print("Eliminar todos os registos do cliente? (s/n): ");
+                    System.out.print("Eliminar todos os registos do cliente? (s/n): ");
                     String todos = ler.nextLine().toLowerCase();
 
                     File inputFile = new File(clientes);
@@ -163,9 +148,9 @@ public class ProjetoLP {
             }
                     } catch (IOException e) {
                         System.out.println("Erro ao processar ficheiros: " + e.getMessage());
-                    }break;*/
+                    }break;
 
-                //sair
+                //Encerrar
                 case "5":
                     System.exit(0);
                 break;
@@ -201,7 +186,7 @@ public class ProjetoLP {
                 return destino;
             }
                 double total = tempo * precoPorSegundo;
-                return String.format("%.2f ECV", total);
+                return (total+" CVE");
                 
                 }catch (NumberFormatException e) {
                 return "Erro";
