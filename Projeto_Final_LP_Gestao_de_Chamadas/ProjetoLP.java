@@ -9,7 +9,7 @@ public class ProjetoLP {
 
             //Opcões disponíveis no sistema
             Scanner ler = new Scanner(System.in);
-            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO OPCV! ---");
+            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO OCV! ---");
 
             while (true) {
                 System.out.println("\n--- MENU ---");
@@ -52,11 +52,8 @@ public class ProjetoLP {
                 Lê cada linha (cliente) e separa os dados (número, destino, tempo).
                 Se o número do cliente for igual ao procurado:
                 Determina a região e o valor a pagar.
-
                 Exibe os dados formatados.
-
                 Se o cliente não for encontrado, avisa o utilizador.
-
                 Se der erro ao ler o ficheiro, mostra uma mensagem de erro.*/
                 System.out.print("Numero do cliente a consultar: ");
                 String numero = ler.nextLine();
