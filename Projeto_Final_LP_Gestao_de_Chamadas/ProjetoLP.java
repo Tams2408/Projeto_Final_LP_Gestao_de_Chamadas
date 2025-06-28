@@ -1,4 +1,4 @@
-package Projeto_Final_LP_Gestao_de_Chamadas;
+//package Projeto_Final_LP_Gestao_de_Chamadas;
 import java.io.*;
 import java.util.*;
 
@@ -48,10 +48,10 @@ public class ProjetoLP {
     
                 //Consultar cliente
                 case "2":
-                /*Abre o ficheiro de clientes.Lê cada linha e separa os dados (número, destino, tempo).
-                Se o número do cliente for igual ao procurado, determina a região e o valor a pagar.
-                Exibe os dados formatados.Se o cliente não for encontrado, avisa o utilizador.
-                Se der erro ao ler o ficheiro, mostra uma mensagem de erro.*/
+                /*É pedido ao utilizador para inserir um número que deseja consultar e vai no ficheiro "clientes.txt" e lê linha por linha.
+                A variável "encontrou", é para saber se algum cliente foi encontrado.
+                Caso encontre o registo, apresenta esse mesmo registo na tela.
+                Senão, emite uma mensagem que não encontrou ou teve algum outro erro inesperado.*/
                 System.out.print("Numero do cliente a consultar: ");
                 String numero = ler.nextLine();
 
@@ -76,6 +76,10 @@ public class ProjetoLP {
 
                 //Gerar Fatura
                 case "3":
+                /* É pedido ao utilizador o número do cliente criando um ficheiro de fatura com esse número lendo os dados do cliente no ficheiro "clientes".
+                Para cada linha correspondente ao cliente, calcula a região e valor e escreve os dados na fatura somando o valor ao valor total.
+                Por fim, escreve o total pago no fim da fatura e informa o caminho do ficheiro gerado.*/
+
                     System.out.println("Numero do cliente: ");
                     String numeroFatura = ler.nextLine();
                     File fatura = new File("Fatura_" + numeroFatura + ".txt");
