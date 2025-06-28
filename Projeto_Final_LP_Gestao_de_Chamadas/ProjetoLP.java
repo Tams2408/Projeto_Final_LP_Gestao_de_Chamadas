@@ -17,11 +17,11 @@ public class ProjetoLP {
             System.out.println("4. Eliminar registos");
             System.out.println("5. Sair");
             System.out.print("Escolha: ");
-            String opcao = ler.nextLine();
+            int opcao = ler.nextInt();
 
             switch (opcao) {
                 //Inserir Registo
-                case "1":
+                case 1:
                 System.out.print("Numero Cliente: ");
                 String cliente = ler.nextLine();
                 System.out.print("Numero Destino: ");
@@ -42,7 +42,7 @@ public class ProjetoLP {
         }break;
     
                 //Consultar cliente
-                case "2":
+                case 2:
                 System.out.print("Numero do cliente a consultar: ");
                 String nome = ler.nextLine();
 
@@ -66,7 +66,7 @@ public class ProjetoLP {
                         System.out.println("Erro ao ler o ficheiro: " + e.getMessage());
                     }break;
                 //Gerar Fatura
-                case "3":
+                case 3:
                     System.out.println("Numero do cliente: ");
                     String consultarNome = ler.nextLine();
                     File fatura = new File("Factura_" + consultarNome + ".txt");
@@ -96,7 +96,7 @@ public class ProjetoLP {
                                 System.out.println("Erro: " + e.getMessage());
                             }break;
                 //gerarFatura();
-                case "4":
+                case 4:
                     System.out.print("Numero do cliente: ");
                     String gerarFaturaCliente = ler.nextLine();
                     System.out.print("Eliminar todos os registos do cliente? (s/n): ");
@@ -135,7 +135,7 @@ public class ProjetoLP {
                     }break;
                 //eliminarRegistos();
 
-                case "5":
+                case 5:
                     System.exit(0);
                 break;
 
