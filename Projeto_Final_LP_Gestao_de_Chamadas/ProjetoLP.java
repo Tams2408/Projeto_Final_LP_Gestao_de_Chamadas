@@ -1,4 +1,3 @@
-//package Projeto_Final_LP_Gestao_de_Chamadas;
 import java.io.*;
 import java.util.*;
 
@@ -140,7 +139,8 @@ public class ProjetoLP {
                     }
                 }
             }
-                    if (inputFile.delete() && tempFile.renameTo(inputFile)) {
+                    if ( inputFile.delete() && tempFile.renameTo(inputFile)) {
+
                         System.out.println("Registos eliminados com sucesso.");
                     } else {
                         System.out.println("Erro ao atualizar o ficheiro.");
