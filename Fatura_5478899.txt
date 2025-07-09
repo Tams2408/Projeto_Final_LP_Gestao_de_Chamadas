@@ -1,9 +1,0 @@
----------------------FATURA-----------------------------
-
-EMPRESA: OPERADORA DE COMUNICACAO - OPCV
-
-CLIENTE: 5478899
-
-DESTINO: 9
-
-TOTAL PAGO: 9.00 ECV

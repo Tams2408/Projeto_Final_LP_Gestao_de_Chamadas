@@ -47,10 +47,6 @@ public class ProjetoLP {
     
                 //Consultar cliente
                 case "2":
-                /*É pedido ao utilizador para inserir um número que deseja consultar e vai no ficheiro "clientes.txt" e lê linha por linha.
-                A variável "encontrou", é para saber se algum cliente foi encontrado.
-                Caso encontre o registo, apresenta esse mesmo registo na tela.
-                Senão, emite uma mensagem que não encontrou ou teve algum outro erro inesperado.*/
                 System.out.print("Numero do cliente a consultar: ");
                 String numero = ler.nextLine();
 
@@ -75,10 +71,6 @@ public class ProjetoLP {
 
                 //Gerar Fatura
                 case "3":
-                /* É pedido ao utilizador o número do cliente criando um ficheiro de fatura com esse número lendo os dados do cliente no ficheiro "clientes".
-                Para cada linha correspondente ao cliente, calcula a região e valor e escreve os dados na fatura somando o valor ao valor total.
-                Por fim, escreve o total pago no fim da fatura e informa o caminho do ficheiro gerado.*/
-
                     System.out.println("Numero do cliente: ");
                     String numeroFatura = ler.nextLine();
                     File fatura = new File("Fatura_" + numeroFatura + ".txt");
