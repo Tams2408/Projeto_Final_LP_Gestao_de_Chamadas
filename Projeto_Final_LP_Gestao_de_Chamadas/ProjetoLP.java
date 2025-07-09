@@ -8,7 +8,7 @@ public class ProjetoLP {
 
             //Opcões disponíveis no sistema
             Scanner ler = new Scanner(System.in);
-            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO DE CABO VERDE - OCV! ---");
+            System.out.println("--- BEM-VINDO(A) A OPERADORA DE COMUNICACAO DE CABO VERDE - OCCV! ---");
 
             while (true) {
                 System.out.println("\n--- MENU ---");
@@ -37,7 +37,7 @@ public class ProjetoLP {
                 }else{
                     System.out.println("Registo inserido com sucesso.");
                 }
-                ////verificação de erro no ficheiro
+                //verificação de erro no ficheiro
                 try (PrintWriter out = new PrintWriter(new FileWriter(clientes, true))) {
                     out.println(cliente + "," + destino + "," + tempo);
                 }
@@ -77,7 +77,7 @@ public class ProjetoLP {
                     try (BufferedReader br = new BufferedReader(new FileReader(clientes));
                             PrintWriter pw = new PrintWriter(new FileWriter(fatura))) {
                             pw.println("---------------------FATURA-----------------------------\n");
-                            pw.println("EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCV\n");
+                            pw.println("EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCCV\n");
                             pw.println("CLIENTE: " + numeroFatura + "\n");
                             pw.printf("%-20s %-10s %-15s %-10s\n", "DESTINO", "TEMPO", "REGIAO", "VALOR");
 
@@ -103,7 +103,7 @@ public class ProjetoLP {
 
                 //Eliminar Registos
                 case "4":
-                    System.out.print("Numero do cliente: ");
+                    /*System.out.print("Numero do cliente: ");
                     String gerarFaturaCliente = ler.nextLine();
                     System.out.print("Eliminar todos os registos do cliente? (s/n): ");
                     String todos = ler.nextLine().toLowerCase();
@@ -140,6 +140,70 @@ public class ProjetoLP {
                     } catch (IOException e) {
                         System.out.println("Erro ao processar ficheiros: " + e.getMessage());
                     }break;
+*/
+
+
+                    //Eliminar Registos
+                    System.out.print("Numero do cliente: ");
+                    String eliminarCliente = ler.nextLine();
+                    System.out.print("Eliminar todos os registos do cliente? (s/n): ");
+                    String todos = ler.nextLine().toLowerCase();
+
+                    File inputFile = new File(clientes);
+                    File tempFile = new File("temp.txt");
+
+                    boolean modificou = false;
+
+                    // Copiar para o ficheiro temporário
+                    try (
+                        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                        PrintWriter writer = new PrintWriter(new FileWriter(tempFile))
+                    ) {
+                        String linha;
+                        while ((linha = reader.readLine()) != null) {
+                            String[] partes = linha.split(",");
+                            if (partes.length >= 3) {
+                                if (todos.equals("s")) {
+                                    if (!partes[0].equalsIgnoreCase(eliminarCliente)) {
+                                        writer.println(linha);
+                                    } else {
+                                        modificou = true;
+                                    }
+                                } else {
+                                    System.out.printf("Eliminar este registo? %s (s/n): ", linha);
+                                    String resposta = ler.nextLine().trim().toLowerCase();
+                                    if (!resposta.equals("s")) {
+                                        writer.println(linha);
+                                    } else {
+                                        modificou = true;
+                                    }
+                                }
+                            }
+                        }
+                    } catch (IOException e) {
+                        System.out.println("Erro ao processar ficheiros: " + e.getMessage());
+                        break;
+                    }
+
+                    // Eliminar e renomear
+                    if (modificou) {
+                        if (inputFile.delete()) {
+                            if (tempFile.renameTo(inputFile)) {
+                                System.out.println("Registos eliminados com sucesso.");
+                            //} else {
+                                //System.out.println("Erro: não foi possível renomear o ficheiro temporário.");
+                           // }
+                       // } else {
+                         //   System.out.println("Erro: não foi possível eliminar o ficheiro original.");
+                        //}
+                    //} else {
+                        // Nada foi alterado, então elimina o ficheiro temporário
+                      //  tempFile.delete();
+                        //System.out.println("Nenhum registo foi eliminado.");
+                    }
+                }
+            }
+                break;
 
                 //Encerrar
                 case "5":

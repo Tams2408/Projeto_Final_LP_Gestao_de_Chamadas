@@ -2,9 +2,9 @@
 
 EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCV
 
-CLIENTE: 5221144
+CLIENTE: 5874122
 
 DESTINO              TEMPO      REGIAO          VALOR     
-238                  900        Desconhecida    238.00    
++3698452             60000      Desconhecida    3698452.00
 
-TOTAL PAGO: 238.00 ECV
+TOTAL PAGO: 3698452.00 ECV
