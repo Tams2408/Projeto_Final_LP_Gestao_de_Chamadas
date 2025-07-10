@@ -1,0 +1,9 @@
+---------------------FATURA-----------------------------
+
+EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCCV
+
+CLIENTE: 2874566
+
+DESTINO              TEMPO      REGIAO          VALOR     
+
+TOTAL PAGO: 0.00 ECV

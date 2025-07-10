@@ -94,7 +94,7 @@ public class ProjetoLP {
                                 total += valor;
                 }
             }
-                                pw.printf("\nTOTAL PAGO: %.2f ECV\n", total);
+                                pw.printf("%nTOTAL PAGO: %.2f ECV\n", total);
                                 System.out.println("Fatura gerada: " + fatura.getAbsolutePath());
 
                             } catch (IOException e) {
@@ -103,47 +103,6 @@ public class ProjetoLP {
 
                 //Eliminar Registos
                 case "4":
-                    /*System.out.print("Numero do cliente: ");
-                    String gerarFaturaCliente = ler.nextLine();
-                    System.out.print("Eliminar todos os registos do cliente? (s/n): ");
-                    String todos = ler.nextLine().toLowerCase();
-
-                    File inputFile = new File(clientes);
-                    File tempFile = new File("dadosClientes.txt");
-
-                    try (
-                        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-                        PrintWriter writer = new PrintWriter(new FileWriter(tempFile))) {
-                        String linha;
-                        while ((linha = reader.readLine()) != null) {
-                        String[] partes = linha.split(",");
-                        if (partes.length >= 3) {
-                            if (todos.equals("s")) {
-                        if (!partes[0].equalsIgnoreCase(gerarFaturaCliente)) {
-                            writer.println(linha);
-                        }
-                    } else {
-                        System.out.printf("Eliminar este registo? %s (s/n): ", linha);
-                        String resposta = ler.nextLine().trim().toLowerCase();
-                        if (!resposta.equals("s")) {
-                            writer.println(linha);
-                        }
-                    }
-                }
-            }
-                    if ( inputFile.delete() && tempFile.renameTo(inputFile)) {
-
-                        System.out.println("Registos eliminados com sucesso.");
-                    } else {
-                        System.out.println("Erro ao atualizar o ficheiro.");
-            }
-                    } catch (IOException e) {
-                        System.out.println("Erro ao processar ficheiros: " + e.getMessage());
-                    }break;
-*/
-
-
-                    //Eliminar Registos
                     System.out.print("Numero do cliente: ");
                     String eliminarCliente = ler.nextLine();
                     System.out.print("Eliminar todos os registos do cliente? (s/n): ");
@@ -190,19 +149,9 @@ public class ProjetoLP {
                         if (inputFile.delete()) {
                             if (tempFile.renameTo(inputFile)) {
                                 System.out.println("Registos eliminados com sucesso.");
-                            //} else {
-                                //System.out.println("Erro: não foi possível renomear o ficheiro temporário.");
-                           // }
-                       // } else {
-                         //   System.out.println("Erro: não foi possível eliminar o ficheiro original.");
-                        //}
-                    //} else {
-                        // Nada foi alterado, então elimina o ficheiro temporário
-                      //  tempFile.delete();
-                        //System.out.println("Nenhum registo foi eliminado.");
+                            }
                     }
                 }
-            }
                 break;
 
                 //Encerrar
@@ -217,10 +166,10 @@ public class ProjetoLP {
     }
 
             public static String detectarRegiao(String destino) {
-                if (destino == "+" || destino == "00"){
+                if (destino.startsWith("+") || destino.startsWith("00")){
                     return "Internacional";
                 }
-                if (destino == "2" || destino == "3" || destino == "5" || destino == "9"){
+                if (destino.startsWith("2") || destino.startsWith("3") || destino.startsWith("5") || destino.startsWith("9")){
                     return "Nacional";
                 }
                 return "Desconhecida";
@@ -231,14 +180,14 @@ public class ProjetoLP {
                     double tempo = Double.parseDouble(tempoStr);
                     double precoPorSegundo;
 
-                if (destino == "+" || destino == "00") {
+                if (destino.startsWith("+") || destino.startsWith("00")) {
                 precoPorSegundo = 1.05;
-                } else if (destino == "2" || destino == "3") {
+                } else if (destino.startsWith("2") || destino.startsWith("3")) {
                 precoPorSegundo = 0.24;
-                } else if (destino == "8" || destino == "9") {
+                } else if (destino.startsWith("8") || destino.startsWith("9")) {
                 precoPorSegundo = 0.43;
                 } else {
-                return destino;
+                return "Indefinido";
             }
                 double total = tempo * precoPorSegundo;
                 return (total+" CVE");
