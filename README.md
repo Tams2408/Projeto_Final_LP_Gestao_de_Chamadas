@@ -6,7 +6,7 @@
 
 # Docente: Valério Santos
 
-#Objetivo do Programa
+# Objetivo do Programa
 
 O objetivo deste projeto é demonstrar o funcionamento de um sistema de gestão de chamadas telefónicas, desenvolvido em linguagem Java.
 
