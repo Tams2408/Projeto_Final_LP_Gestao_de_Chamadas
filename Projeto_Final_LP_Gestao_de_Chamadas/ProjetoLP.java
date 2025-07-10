@@ -175,7 +175,7 @@ public class ProjetoLP {
                 }
                 return "Desconhecida";
     }
-            //Função calcular valor total de acordo com o destino introduzido
+            //Função calcular valor total de acordo com o destino e o tempo introduzido
             public static String calcularValorTotal(String destino, String tempoStr) {
                 try {
                     double tempo = Double.parseDouble(tempoStr);
