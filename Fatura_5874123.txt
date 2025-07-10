@@ -1,0 +1,10 @@
+---------------------FATURA-----------------------------
+
+EMPRESA: OPERADORA DE COMUNICACAO DE CABO VERDE - OCCV
+
+CLIENTE: 5874123
+
+DESTINO              TEMPO      REGIAO          VALOR     
++2587412             300        Internacional   315.00    
+
+TOTAL PAGO: 315.00 ECV
