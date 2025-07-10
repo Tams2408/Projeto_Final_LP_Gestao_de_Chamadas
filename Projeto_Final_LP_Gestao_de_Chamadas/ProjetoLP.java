@@ -165,7 +165,7 @@ public class ProjetoLP {
             }
         }
     }
-
+            //Função detetar região de acordo com o número de destino
             public static String detectarRegiao(String destino) {
                 if (destino.startsWith("+") || destino.startsWith("00")){
                     return "Internacional";
@@ -175,7 +175,7 @@ public class ProjetoLP {
                 }
                 return "Desconhecida";
     }
-
+            //Função calcular valor total de acordo com o destino introduzido
             public static String calcularValorTotal(String destino, String tempoStr) {
                 try {
                     double tempo = Double.parseDouble(tempoStr);
