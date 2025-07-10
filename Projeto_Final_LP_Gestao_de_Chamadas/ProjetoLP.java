@@ -139,6 +139,7 @@ public class ProjetoLP {
                                 }
                             }
                         }
+                    //Erro no processo de ficheiro
                     } catch (IOException e) {
                         System.out.println("Erro ao processar ficheiros: " + e.getMessage());
                         break;
