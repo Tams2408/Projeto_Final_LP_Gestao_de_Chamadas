@@ -58,7 +58,8 @@ public class ProjetoLP {
                     if (partes.length >= 3 && partes[0].equalsIgnoreCase(numero)) {
                         String regiao = detectarRegiao(partes[1]);
                         String valor = calcularValorTotal(partes[1], partes[2]);
-                        System.out.printf("Cliente: "+partes[0]+" | Destino: "+partes[1]+ " | Tempo: "+partes[2]+ " | Regiao: "+regiao+ "| Valor: "+valor);
+                        System.out.printf("Cliente: "+partes[0]+" | Destino: "+partes[1]+ " | Tempo: "+partes[2]
+                        +"| Regiao: "+regiao+ "| Valor: "+valor);
                             encontrou = true;
                 }
             }
@@ -170,7 +171,8 @@ public class ProjetoLP {
                 if (destino.startsWith("+") || destino.startsWith("00")){
                     return "Internacional";
                 }
-                if (destino.startsWith("2") || destino.startsWith("3") || destino.startsWith("5") || destino.startsWith("9")){
+                if (destino.startsWith("2") || destino.startsWith("3")
+                || destino.startsWith("5") || destino.startsWith("9")){
                     return "Nacional";
                 }
                 return "Desconhecida";
