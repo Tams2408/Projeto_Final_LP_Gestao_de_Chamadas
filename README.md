@@ -1,4 +1,4 @@
-# Projeto Final Linguagem de Programação - Sistema de Gestão de Chamadas OOCV
+# Projeto Final Linguagem de Programação - Sistema de Gestão de Chamadas OCCV
 # Discentes:
 - Igor Gomes - nº 8018
 - Paulo Costa - nº 7517
